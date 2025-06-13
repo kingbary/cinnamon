@@ -6,9 +6,10 @@
 @theme inline {
   --color-primary: var(--primary);
   --color-background: var(--background);
+  --color-dark: var(--dark);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-instrument-sans);
-  --font-poppins: var(--font-poppins)
+  --font-poppins: var(--font-poppins);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -52,6 +53,7 @@ body {
   --radius: 0.625rem;
   --primary: #1f1f99;
   --background: white;
+  --dark: #141414;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
