@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Instrument_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import NavLink from "@/components/universal/nav-link";
+import Footer from "@/components/universal/footer";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -33,11 +34,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSans.variable} ${poppins.variable} ${geist.variable} bg-background overflow-x-hidden px-2 antialiased font-[family-name:var(--font-instrument-sans)]`}
+        className={`${instrumentSans.variable} ${poppins.variable} ${geist.variable} bg-background overflow-x-hidden px-2 pb-2 antialiased font-[family-name:var(--font-instrument-sans)]`}
 
       >
         <NavLink />
         {children}
+        <Footer />
       </body>
     </html>
   );
