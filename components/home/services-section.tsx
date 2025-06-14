@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from '../container'
+import Container from '../universal/container'
 import SectionTitle from '../universal/section-title'
 import { Button } from '../ui/button'
 import Image from 'next/image'

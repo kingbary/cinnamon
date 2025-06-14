@@ -5,7 +5,7 @@ import { navLinks } from '@/app/constants/navLink'
 import Link from 'next/link'
 import { Dot } from '../vectors/dot'
 import { usePathname } from 'next/navigation'
-import Container from '../container'
+import Container from './container'
 
 export default function NavLink() {
     const pathname = usePathname();
