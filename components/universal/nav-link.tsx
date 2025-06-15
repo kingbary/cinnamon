@@ -11,9 +11,9 @@ export default function NavLink() {
     const pathname = usePathname();
     const active = navLinks.find((item) => item.route === pathname)?.route
     return (
-        <Container>
-            <nav className='absolute z-50 top-8 w-full'>
-                <div className='relative flex justify-center items-center'>
+        <nav className='absolute w-full z-50 top-8'>
+            <Container>
+                <div className='relative w-full flex justify-center items-center'>
                     <span className='absolute -top-2 left-0'>
                         <LogoText />
                     </span>
@@ -26,7 +26,7 @@ export default function NavLink() {
                         ))}
                     </ul>
                 </div>
-            </nav>
-        </Container>
+            </Container>
+        </nav>
     )
 }
