@@ -5,7 +5,7 @@ import { Button } from '../ui/button'
 export default function Header() {
 
     return (
-        <header className='relative py-2 h-screen'>
+        <header className='relative pt-2 h-screen'>
             {/* <Container className='first-container bg-dark flex items-center py-4 h-fit'>
                 <div className='pt-20 flex flex-col items-center justify-center'>
                     <h5 className='text-[#B8B8CC] text-[32px] font-semibold leading-8 -tracking-[2px]'>PR that puts you in the</h5>
