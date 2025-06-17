@@ -17,7 +17,7 @@ type Props = {
 
 export default function VideoCard({ props }: { props: Props }) {
     return (
-        <div className='bg-white rounded-4xl flex flex-col gap-2 w-full p-1 overflow-hidden z-50'>
+        <div className='bg-white rounded-4xl flex flex-col gap-2 w-full p-1 overflow-hidden z-50 shadow-custom'>
             <div className='relative bg-[#00000033] bg-[url(/images/video-overlay.png)] w-full h-[320px] rounded-[28px]'>
                 <span className='absolute bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2 z-50'>
                     <PlayIcon />
@@ -36,7 +36,7 @@ export default function VideoCard({ props }: { props: Props }) {
                         <LineStroke />
                     </div>
                     <div className='flex gap-4 items-center pl-4'>
-                        <div className={`rounded-md text-sm font-medium px-2 py-1`} style={{backgroundColor: props.tag.bgColor, color: props.tag.textColor}}>
+                        <div className={`rounded-md text-sm font-medium px-2 py-1`} style={{ backgroundColor: props.tag.bgColor, color: props.tag.textColor }}>
                             {props.tag.text}
                         </div>
                     </div>

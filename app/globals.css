@@ -150,6 +150,10 @@ body {
   .animate-navLink {
     animation: navlinkTransition 1s ease-in-out 1s forwards;
   }
+
+  .bgLinearGradient {
+    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  }
   body {
     @apply bg-background text-foreground;
   }
@@ -184,4 +188,17 @@ body {
   a:hover {
     text-decoration: underline;
   }
+}
+
+.video-bg {
+  background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(5px);
+}
+
+.podcast-session-bg {
+  background: linear-gradient(0deg, #1f1f99 0%, rgba(31, 31, 153, 0) 100%);
+  backdrop-filter: blur(5px);
+}
+.shadow-custom {
+  box-shadow: 0px 10px 40px 0px rgba(188, 173, 217, 0.15);
 }

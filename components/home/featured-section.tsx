@@ -19,7 +19,7 @@ export default function FeaturedSection() {
     return (
         <div className='relative bg-[#FFD480] rounded-t-[80px] rounded-b-[40px] mb-8 overflow-hidden'>
             <Image className='absolute top-0 left-0' src={'/images/headphone.png'} width={600} height={600} alt='headphone' />
-            <Image className='absolute bottom-0 right-0' src={'/images/retro-mic.png'} width={600} height={600} alt='headphone' />
+            <Image className='absolute bottom-0 right-0' src={'/images/retro-mic.png'} width={600} height={600} alt='microphone' />
             <Container className='flex flex-col w-full gap-8 items-center px-8 pt-20 pb-8'>
                 <div className='flex flex-col w-full items-center gap-6'>
                     <h2 className='text-center text-[#402F0D] max-w-[640px]'>Lorem ipsum consectetur elit eleifend donec dui vulputate.</h2>
