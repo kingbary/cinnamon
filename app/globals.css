@@ -202,3 +202,8 @@ body {
 .shadow-custom {
   box-shadow: 0px 10px 40px 0px rgba(188, 173, 217, 0.15);
 }
+
+.blogHeader {
+   border: 1px solid #FFF;
+   background: linear-gradient(180deg, rgba(65, 169, 213, 0.70) 0%, rgba(65, 169, 213, 0.00) 75%), lightgray 50% / cover no-repeat, #DADAE5;
+}
