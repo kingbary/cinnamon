@@ -4,11 +4,12 @@ import React from 'react'
 
 export default function LogoText({ className }: { className?: string }) {
     const pathname = usePathname();
+    console.log("pathName:", pathname)
 
     let textColor = "text-white";
     if (pathname.includes("podcast")) {
         textColor = "text-black";
-    } else if (pathname.includes("blog")) {
+    } else if (pathname.includes("/blog/")) {
         textColor = "text-primary";
     }
     return (
