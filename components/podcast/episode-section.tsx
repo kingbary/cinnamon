@@ -3,7 +3,7 @@ import React from 'react'
 import Container from '../universal/container'
 import { Search } from 'lucide-react'
 import VideoCard from '../universal/video-card'
-import Pagination from './pagination'
+import Pagination from '../universal/pagination'
 
 export default function EpisodeSection() {
     const [currentPage, setCurrentPage] = React.useState(1)
