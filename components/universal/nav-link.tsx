@@ -1,11 +1,11 @@
 "use client"
 import React from 'react'
 import LogoText from './logo-text'
-import { navLinks } from '@/app/constants/navLink'
 import Link from 'next/link'
 import { Dot } from '../vectors/dot'
 import { usePathname } from 'next/navigation'
 import Container from './container'
+import { navLinks } from '@/constants/navLink'
 
 export default function NavLink() {
     const pathname = usePathname();
