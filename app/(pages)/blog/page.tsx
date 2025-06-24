@@ -1,14 +1,23 @@
 import ArticlesSection from '@/components/blog/articles-section'
 import FeaturedArticle from '@/components/blog/featured-article'
 import PageHeader from '@/components/universal/page-header'
-import React from 'react'
+import { Post } from '@/sanity.types';
+import { fetchBlogArticles } from '@/sanity/lib/queries';
+import React, { Suspense } from 'react'
 
-export default function BlogPage() {
+export default async function BlogPage() {
+    let articles: { data: Post[] } = { data: [] };
+    try {
+        articles = await fetchBlogArticles();
+    } catch (error) {
+        console.error('error', error);
+    }
+    console.log("articles:", articles)
     return (
-        <>
+        <Suspense>
             <PageHeader title='blog' />
             <FeaturedArticle />
             <ArticlesSection />
-        </>
+        </Suspense>
     )
 }
