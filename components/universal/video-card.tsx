@@ -17,8 +17,8 @@ type Props = {
 
 export default function VideoCard({ props }: { props: Props }) {
     return (
-        <div className='bg-white rounded-4xl flex flex-col gap-2 w-full p-1 overflow-hidden z-50 shadow-custom'>
-            <div className='relative bg-[#00000033] bg-[url(/images/video-overlay.png)] w-full h-[320px] rounded-[28px]'>
+        <div className='bg-white rounded-2xl flex flex-col gap-2 w-full p-1 overflow-hidden z-50 shadow-custom md:rounded-4xl'>
+            <div className='relative bg-[#00000033] bg-[url(/images/video-overlay.png)] w-full h-[320px] rounded-[12px] md:rounded-[28px]'>
                 <span className='absolute bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2 z-50'>
                     <PlayIcon />
                 </span>
@@ -28,15 +28,15 @@ export default function VideoCard({ props }: { props: Props }) {
                 <div className="flex">
                     <div className='flex gap-2 items-center'>
                         <Image src={props.avatarUrl} width={24} height={24} alt='avatar image' />
-                        <p className='font-medium'>{props.name}</p>
+                        <p className='font-medium text-xs whitespace-nowrap lg:text-base'>{props.name}</p>
                         <LineStroke className='ml-2' />
                     </div>
                     <div className='flex gap-4 items-center pl-4'>
-                        <p className='font-medium'>{props.duration}</p>
+                        <p className='font-medium text-xs whitespace-nowrap lg:text-base'>{props.duration}</p>
                         <LineStroke />
                     </div>
                     <div className='flex gap-4 items-center pl-4'>
-                        <div className={`rounded-md text-sm font-medium px-2 py-1`} style={{ backgroundColor: props.tag.bgColor, color: props.tag.textColor }}>
+                        <div className={`rounded-md text-xs whitespace-nowrap lg:text-sm font-medium px-2 py-1`} style={{ backgroundColor: props.tag.bgColor, color: props.tag.textColor }}>
                             {props.tag.text}
                         </div>
                     </div>

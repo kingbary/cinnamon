@@ -15,23 +15,23 @@ export default function Footer() {
         { name: "Terms and Condition", link: "terms-and-condition" },
     ]
     return (
-        <footer className='bg-[#14141A] flex flex-col items-center p-16 rounded-3xl text-[#CFCFE5]'>
+        <footer className='bg-[#14141A] flex flex-col items-center px-4 py-6 md:p-16 rounded-3xl text-[#CFCFE5]'>
             <span
-                className='text-[200px] text-white font-[family-name:var(--font-poppins)] font-semibold leading-[200px] -tracking-[16px]'
+                className='footer-logo'
                 style={{ fontFeatureSettings: "'ss02' on" }}
             >
                 cinnamon
             </span>
-            <small className='text-base leading-6 -tracking-[0.5px]'>© Copyright {new Date().getFullYear()}. All rights reserved</small>
+            <small className='text-xs md:text-base leading-6 -tracking-[0.5px]'>© Copyright {new Date().getFullYear()}. All rights reserved</small>
             <div className='w-full mt-20 flex justify-between'>
-                <div className='flex items-center gap-2'>
+                <div className='flex flex-col items-start gap-2 md:items-center md:flex-row'>
                     {socials.map((item, index) => (
-                        <Link key={index} href={item.link} className='px-3 py-2 font-sans text-xl'>{item.name}</Link>
+                        <Link key={index} href={item.link} className='px-3 py-2 font-sans text-sm md:text-xl text-left'>{item.name}</Link>
                     ))}
                 </div>
-                <div className='flex items-center gap-2'>
+                <div className='flex flex-col items-end gap-2 md:items-center md:flex-row'>
                     {otherLinks.map((item, index) => (
-                        <Link key={index} href={item.link} className='px-3 py-2 font-sans text-xl'>{item.name}</Link>
+                        <Link key={index} href={item.link} className='px-3 py-2 font-sans text-sm md:text-xl text-left'>{item.name}</Link>
                     ))}
                 </div>
             </div>

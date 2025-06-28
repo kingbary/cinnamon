@@ -3,6 +3,9 @@ import Container from '../universal/container'
 import { Button } from '../ui/button'
 import VideoCard from '../universal/video-card'
 import Image from 'next/image'
+import VideoCamera from '../vectors/video-camera'
+import Microphone from '../vectors/microphone'
+import Headphone from '../vectors/headphone'
 
 export default function FeaturedSection() {
     const videoCardData = {
@@ -17,18 +20,27 @@ export default function FeaturedSection() {
         }
     }
     return (
-        <div className='relative bg-[#FFD480] rounded-t-[80px] rounded-b-[40px] mb-8 overflow-hidden'>
-            <Image className='absolute top-0 left-0' src={'/images/headphone.png'} width={600} height={600} alt='headphone' />
-            <Image className='absolute bottom-0 right-0' src={'/images/retro-mic.png'} width={600} height={600} alt='microphone' />
-            <Container className='flex flex-col w-full gap-8 items-center px-8 pt-20 pb-8'>
+        <div className='relative bg-[#FFD480] mb-8 overflow-hidden rounded-3xl md:rounded-t-[80px] md:rounded-b-[40px]'>
+            <Image className='hidden absolute top-0 left-0 md:block' src={'/images/headphone.png'} width={600} height={600} alt='headphone' />
+            <Image className='hidden absolute bottom-0 right-0 md:block' src={'/images/retro-mic.png'} width={600} height={600} alt='microphone' />
+            <div className='flex w-full justify-center mt-4'>
+                <div className='bg-[#402F0D]/10 w-fit rounded-xl p-1'>
+                    <div className='bg-[#402F0D]/20 flex items-center gap-[10px] px-4 py-2 border border-primary border-dashed rounded-lg'>
+                        <span><VideoCamera /></span>
+                        <span><Headphone /></span>
+                        <span><Microphone /></span>
+                    </div>
+                </div>
+            </div>
+            <Container className='flex flex-col w-full gap-8 items-center px-2 pt-4 md:pt-20 pb-8'>
                 <div className='flex flex-col w-full items-center gap-6'>
                     <h2 className='text-center text-[#402F0D] max-w-[640px]'>Lorem ipsum consectetur elit eleifend donec dui vulputate.</h2>
                     <p className='text-center text-[#736039] max-w-[452px]'>Lorem ipsum scelerisque elementum placerat posuere id nec nibh ullamcorper volutpat vestibulum viverra cras gravida at pretium.</p>
-                    <div className='flex gap-4'>
+                    <div className='flex flex-col gap-4 sm:flex-row'>
                         <Button variant={'secondary'}>Feature on our Podcast</Button>
                         <Button variant={'transparentBg'} className='bg-[#0000001A]'>View all Episodes</Button>
                     </div>
-                    <div className='flex w-full justify-between gap-8'>
+                    <div className='flex flex-col w-full justify-between gap-8 md:flex-row'>
                         <VideoCard props={videoCardData} />
                         <VideoCard props={videoCardData} />
                     </div>

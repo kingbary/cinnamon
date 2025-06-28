@@ -14,8 +14,8 @@ export default function FAQ() {
     ]
     return (
         <Container className='my-8 pt-8 pb-16'>
-            <div className='w-full flex flex-col justify-between gap-8 md:flex-row lg:gap-[120px]'>
-                <div className='w-full'>
+            <div className='w-full flex flex-col justify-between items-center gap-8 lg:flex-row lg:gap-[120px]'>
+                <div className='w-full hidden lg:block'>
                     <Image src={'/images/faq-image.png'} width={504} height={728} alt='Lady thinking' loading='lazy' />
                 </div>
                 <div className='w-full'>
@@ -24,7 +24,7 @@ export default function FAQ() {
                         <Accordion type="single" collapsible>
                             {faq.map((item, index) => (
                                 <AccordionItem value={`item-${index}`} key={index}>
-                                    <AccordionTrigger>{item.question}</AccordionTrigger>
+                                    <AccordionTrigger className='cursor-pointer'>{item.question}</AccordionTrigger>
                                     <AccordionContent> {item.answer}</AccordionContent>
                                 </AccordionItem>
                             ))}
