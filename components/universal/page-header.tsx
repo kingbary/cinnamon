@@ -20,7 +20,7 @@ export default function PageHeader({ title, subtext, className, titleClassName }
                         <h3 className={cn('text-center text-white text-7xl font-bold uppercase -tracking-[8px] md:-tracking-[10px] font-[family-name:var(--font-poppins)] md:text-[120px]', titleClassName)}>{title}</h3>
                     </div>
                     <div className='max-w-[532px] flex flex-col items-center justify-center'>
-                        <p className='text-white text-xl text-center font-medium leading-8 -tracking-[0.5px]'>{subtext}</p>
+                        <p className='text-white font-medium text-center'>{subtext}</p>
 
                     </div>
                 </div>

@@ -4,10 +4,10 @@ import { Button } from '../ui/button'
 
 export default function ContactForm() {
     return (
-        <Container className='mb-8'>
+        <Container className='mb-8 px-0'>
             <div className='flex w-full h-[500px]'>
-                <div className='bg-[#1F1F99] h-full w-full rounded-l-[40px]'></div>
-                <div className='h-full w-full rounded-r-[40px] py-16 px-[88px] border-r border-y'>
+                <div className='hidden bg-[#1F1F99] h-full w-full rounded-l-[40px] md:block'></div>
+                <div className='h-full w-full rounded-3xl md:rounded-tl-none md:rounded-bl-none md:rounded-r-[40px] py-16 px-4 md:px-[88px] border md:border-y md:border-r md:border-l-0'>
                     <form action="" className='flex flex-col gap-3'>
                         <div>
                             <label htmlFor="email" className='sr-only'>Email</label>
