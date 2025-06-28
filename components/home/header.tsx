@@ -14,7 +14,7 @@ export default function Header() {
                     </div>
                 </div>
             </Container> */}
-            <Container className='second-container bg-[#1F1F99] flex items-center py-4 h-full animate-bgTransition'>
+            <Container className=' bg-[#1F1F99] flex items-center py-4 h-full animate-bgTransition'>
                 <div className='pt-20 flex flex-col items-center justify-center'>
                     <h5 className='text-[#B8B8CC] text-[32px] font-semibold leading-8 -tracking-[2px]'>PR that puts you in the</h5>
                     <div className='relative my-6 font-[family-name:var(--font-poppins)] px-4'>
