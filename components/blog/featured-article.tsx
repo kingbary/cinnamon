@@ -11,20 +11,20 @@ export default function FeaturedArticle() {
             <div className='w-full flex flex-col justify-between gap-8 md:flex-row lg:gap-[120px]'>
                 <div className='w-full'>
                     <SectionTitle text="Featured Article" />
-                    <div className='flex flex-col gap-3'>
+                    <div className='flex flex-col gap-3 mt-4'>
                         <h2>Lorem ipsum molestie nunc egestas pretium scelerisque turpis magna.</h2>
                         <div className="flex">
                             <div className='flex gap-2 items-center'>
                                 <Image src={'/images/avatar.png'} width={24} height={24} alt='avatar image' />
-                                <p className='font-medium'>John Doe</p>
+                                <p className='font-medium text-xs whitespace-nowrap lg:text-base'>John Doe</p>
                                 <LineStroke className='ml-2' />
                             </div>
                             <div className='flex gap-4 items-center pl-4'>
-                                <p className='font-medium'>5 minutes</p>
+                                <p className='font-medium text-xs whitespace-nowrap lg:text-base'>5 minutes</p>
                                 <LineStroke />
                             </div>
                             <div className='flex gap-4 items-center pl-4'>
-                                <div className={`rounded-md text-sm font-medium px-2 py-1`} style={{ backgroundColor: '#EEE5FF', color: '#5214CC' }}>
+                                <div className={`rounded-md text-xs whitespace-nowrap lg:text-sm font-medium px-2 py-1`} style={{ backgroundColor: '#EEE5FF', color: '#5214CC' }}>
                                     Lifestyle and Travel
                                 </div>
                             </div>

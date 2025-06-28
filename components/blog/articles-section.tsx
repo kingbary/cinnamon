@@ -30,9 +30,9 @@ export default function ArticlesSection() {
         setCurrentPage(1)
     }, [searchTerm])
     return (
-        <Container className='pt-8 pb-16 flex-col'>
+        <Container className='pt-8 pb-16 flex-col px-0'>
             <div>
-                <div className='flex w-full justify-start gap-[120px] items-center'>
+                <div className='flex flex-col w-full justify-start md:items-center gap-4 md:gap-[120px] md:flex-row'>
                     <h2>All episodes </h2>
                     <div className='relative bg-[#F5F5FA] pl-10 pr-4 border border-[#D9D9E5] rounded-[80px]'>
                         <input
@@ -49,7 +49,7 @@ export default function ArticlesSection() {
                         Found {totalItems} article matching &quot;{searchTerm}&quot;
                     </div>
                 )}
-                <div className="mt-16 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="mt-6 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:mt-16">
                     {currentArticle.length > 0 ? (
                         currentArticle.map((item, index) => (
                             <ArticleCard key={index} props={item} />

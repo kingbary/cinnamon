@@ -15,7 +15,7 @@ export default async function BlogPage() {
     console.log("articles:", articles)
     return (
         <Suspense>
-            <PageHeader title='blog' />
+            <PageHeader title='press' />
             <FeaturedArticle />
             <ArticlesSection />
         </Suspense>
