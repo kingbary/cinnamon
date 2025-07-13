@@ -1,3 +1,4 @@
+import AmplifyProfile from "@/components/home/amplify-profile";
 import FAQ from "@/components/home/faq";
 import FeaturedSection from "@/components/home/featured-section";
 import Header from "@/components/home/header";
@@ -8,6 +9,7 @@ export default function Home() {
     <>
       <Header />
       <ServicesSection />
+      <AmplifyProfile />
       <FeaturedSection />
       <FAQ />
     </>
