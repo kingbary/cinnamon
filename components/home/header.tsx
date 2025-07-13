@@ -4,6 +4,7 @@ import { Button } from '../ui/button'
 
 export default function Header() {
 
+
     return (
         <header className='relative pt-2 h-screen'>
             {/* <Container className='first-container bg-dark flex items-center py-4 h-fit'>
@@ -14,8 +15,8 @@ export default function Header() {
                     </div>
                 </div>
             </Container> */}
-            <Container className=' bg-[#1F1F99] flex items-center py-4 h-full animate-bgTransition'>
-                <div className='pt-20 flex flex-col items-center justify-center'>
+            <Container className='bg-[#1F1F99] py-4 animate-heightGrow animate-bgTransition'>
+                <div className='pt-20 flex flex-col items-center justify-center absolute top-0 left-0 right-0 bottom-0'>
                     <h5 className='text-[#B8B8CC] text-[32px] font-semibold leading-8 -tracking-[2px]'>PR that puts you in the</h5>
                     <div className='relative my-6 font-[family-name:var(--font-poppins)] px-4'>
                         <h1 className='blur-lg'>
