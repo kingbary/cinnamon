@@ -243,6 +243,16 @@ body {
   letter-spacing: -6px;
 }
 
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (width > 395px) {
   h1,
   .h1 {

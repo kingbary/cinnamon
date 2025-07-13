@@ -2,21 +2,24 @@
 import React from 'react'
 import Container from '../universal/container'
 import { Button } from '../ui/button'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { toast } from 'sonner'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
 type ContactFormData = {
     email: string;
     name: string;
     message: string;
+    service: string;
 }
 
 export default function ContactForm() {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>({
+    const { register, handleSubmit, reset, control, formState: { errors } } = useForm<ContactFormData>({
         mode: 'all', defaultValues: {
             email: '',
             name: '',
-            message: ''
+            message: '',
+            // service: ''
         }
     })
 
@@ -57,7 +60,7 @@ export default function ContactForm() {
 
             if (typeof window !== 'undefined') {
                 toast.success("Your response was submitted succesfully!")
-                reset( )
+                reset()
 
             }
 
@@ -66,29 +69,61 @@ export default function ContactForm() {
         }
     };
 
+    const selectOption = [
+        { label: 'Marketing', value: 'marketing' },
+        { label: 'Cloud computing', value: 'cloud-computing' },
+        { label: 'Advance AI integration', value: 'ai-integration' },
+    ]
+
     return (
         <Container className='mb-8 px-0'>
-            <div className='flex w-full h-[500px]'>
-                <div className='hidden bg-[#1F1F99] h-full w-full rounded-l-[40px] md:block'></div>
+            <div className='flex w-full h-fit'>
+                <div className='hidden bg-[#1F1F99] min-h-[500px] w-full rounded-l-[40px] md:block'></div>
                 <div className='h-full w-full rounded-3xl md:rounded-tl-none md:rounded-bl-none md:rounded-r-[40px] py-16 px-4 md:px-[88px] border md:border-y md:border-r md:border-l-0'>
                     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-3'>
                         <div>
                             <label htmlFor="email" className='sr-only'>Email</label>
-                            <input {...register('email', { required: 'This field is required' })} type="email" name='email' id='email' placeholder='Email address' className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg' />
+                            <input {...register('email', { required: 'This field is required' })} type="email" name='email' id='email' placeholder='Email address' className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px]' />
                             {errors.email && (
                                 <p className='text-sm text-red-600 mt-1'>{errors.email.message}</p>
                             )}
                         </div>
                         <div>
                             <label htmlFor="name" className='sr-only'>Name </label>
-                            <input {...register('name', { required: 'This field is required' })} type="name" name='name' placeholder='Name' className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg' />
+                            <input {...register('name', { required: 'This field is required' })} type="name" name='name' placeholder='Name' className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px]' />
                             {errors.name && (
                                 <p className='text-sm text-red-600 mt-1'>{errors.name.message}</p>
                             )}
                         </div>
                         <div>
+                            <Controller
+                                name="service"
+                                control={control}
+                                rules={{ required: 'Please select a service type' }}
+                                render={({ field }) => (
+                                    <Select onValueChange={field.onChange} value={field.value}>
+                                        <SelectTrigger
+                                            className={`border-[#E1E1E5] border rounded-[8px] h-14 outline-none text-sm text-[#737380] w-full font-normal ${errors.service ? 'border-red-600' : ''}`}
+                                        >
+                                            <SelectValue placeholder="What do you want to do? (select a service type)" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            {selectOption.map((option) => (
+                                                <SelectItem key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                )}
+                            />
+                            {errors.service && (
+                                <p className='text-sm text-red-600 mt-1'>{errors.service.message}</p>
+                            )}
+                        </div>
+                        <div>
                             <label htmlFor="message" className='sr-only'>Message</label>
-                            <textarea {...register('message', { required: 'This field is required' })} name="message" placeholder='Please type your message' id="message" className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg' rows={6} cols={4}></textarea>
+                            <textarea {...register('message', { required: 'This field is required' })} name="message" placeholder='Please type your message' id="message" className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px]' rows={6} cols={4}></textarea>
                             {errors.message && (
                                 <p className='text-sm text-red-600 mt-1'>{errors.message.message}</p>
                             )}
