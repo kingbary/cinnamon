@@ -7,8 +7,10 @@ export default function AboutSection() {
             <div className='w-full flex flex-col justify-between gap-8 md:flex-row lg:gap-[120px]'>
                 <div className='w-full'>
                     <div className='flex flex-col gap-6'>
-                        <h2>Lorem ipsum molestie nunc egestas pretium scelerisque turpis magna.</h2>
-                        <p>Lorem ipsum risus bibendum molestie bibendum pellentesque tellus rhoncus libero amet lectus arcu elementum sit faucibus eu amet hendrerit arcu lacinia turpis scelerisque sapien eu est morbi cursus pulvinar diam proin velit quam mauris aliquam venenatis auctor porttitor tincidunt arcu enim malesuada ultricies sed in phasellus penatibus congue a mauris aliquam condimentum condimentum volutpat nulla viverra sed mi orci faucibus elit nulla pharetra amet ac leo arcu ultricies nunc habitasse nam ornare magnis nascetur et dolor volutpat ultrices non nec semper neque sit metus eget lobortis dictum sit cursus lobortis nulla donec lorem diam adipiscing vitae aenean in tellus purus vitae lacus duis nunc suspendisse egestas phasellus integer nulla maecenas est metus in hac semper lectus posuere scelerisque ultrices consequat.</p>
+                        <h2>Why We Do What We Do</h2>
+                        <p>Founded on the belief that exceptional talent deserves global recognition, Cinnamon bridges the gap between professional excellence and public visibility. We understand that brilliant work often goes unnoticed, and that recognition, not just achievement, opens the doors that matter most.
+                            Our team combines deep expertise in strategic communications with an understanding of what immigration panels, industry leaders, and international audiences value most. We don&apos;t just generate coverage; we build the kind of credible, authoritative presence that creates real opportunities.
+                        </p>
                     </div>
                 </div>
                 <div className='w-full'>

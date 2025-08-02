@@ -6,7 +6,7 @@ import React from 'react'
 export default function AboutUsPage() {
     return (
         <>
-            <PageHeader title='About us' subtext='Lorem ipsum in id interdum felis ut elit eros urna sociis bibendum varius dui nisl aliquet euismod augue ullamcorper integer in ornare at lectus blandit arcu elementum blandit eget vel a fringilla pellentesque arcu massa lacus nisi consectetur risus tempus suspendisse id in ligula scelerisque euismod integer purus egestas curabitur volutpat quam accumsan habitant vulputate sapien bibendum in hac suspendisse mattis tempus gravida praesent in mattis nullam cras tortor dui est elementum eget eget sed donec vitae cras pellentesque eleifend.' />
+            <PageHeader title='About us' subtext={`We're a UK-based personal PR consultancy specialising in building global visibility for high-achieving professionals. Our strategic approach combines targeted media placements, thought leadership positioning, and international profile building to help ambitious professionals build credible digital footprints and lasting global visibility. We specialise in personal press, including article features, podcast interviews, and online visibility, that make your expertise undeniable while advancing your career worldwide.`} />
             <AboutSection />
             <ContactForm />
         </>
