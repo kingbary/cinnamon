@@ -11,8 +11,8 @@ export default function ServicesSection() {
                 <div className='w-full'>
                     <SectionTitle text="services" />
                     <div className='flex flex-col gap-6 mt-4'>
-                        <h2>Land press that tells your story... your way..</h2>
-                        <p>Lorem ipsum scelerisque elementum placerat posuere id nec nibh ullamcorper volutpat vestibulum viverra cras gravida at pretium aliquet morbi eget elit rhoncus faucibus sit placerat nulla diam tincidunt mauris pretium suspendisse lobortis enim et placerat a aenean in in etiam scelerisque aliquet in suspendisse dignissim.</p>
+                        <h2>Strategic Media Placements</h2>
+                        <p>Secure coverage in publications that matter to your industry and immigration goals.</p>
                         <Button className='w-fit'>Get Featured</Button>
                     </div>
                 </div>

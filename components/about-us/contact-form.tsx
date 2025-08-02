@@ -80,7 +80,7 @@ export default function ContactForm() {
             <div className='flex w-full h-fit'>
                 <div className='hidden bg-[#1F1F99] min-h-[500px] w-full rounded-l-[40px] md:block'></div>
                 <div className='h-full w-full rounded-3xl md:rounded-tl-none md:rounded-bl-none md:rounded-r-[40px] py-16 px-4 md:px-[88px] border md:border-y md:border-r md:border-l-0'>
-                    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-3'>
+                    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-3' id='contact-form'>
                         <div>
                             <label htmlFor="email" className='sr-only'>Email</label>
                             <input {...register('email', { required: 'This field is required' })} type="email" name='email' id='email' placeholder='Email address' className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px]' />

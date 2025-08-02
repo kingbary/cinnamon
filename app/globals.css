@@ -46,6 +46,11 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 98px;
+}
+
 body {
   /* font-family: "Instrument-sans", Arial, Helvetica, sans-serif; */
 }

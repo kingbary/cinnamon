@@ -123,7 +123,7 @@ export default function EpisodeSection() {
     return (
         <Container className='pt-8 pb-16 flex-col px-0'>
             {/* All episodes  */}
-            <div className='flex flex-col items-start w-full'>
+            <div className='flex flex-col items-start w-full' id='all-episodes'>
                 <div className='flex flex-col w-full justify-start md:items-center gap-4 md:gap-[120px] md:flex-row'>
                     <h2>All episodes </h2>
                     <div className='relative bg-[#F5F5FA] pl-10 pr-4 border border-[#D9D9E5] rounded-[80px]'>

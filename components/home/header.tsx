@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '../universal/container'
 import { Button } from '../ui/button'
+import Link from 'next/link'
 
 export default function Header() {
 
@@ -29,9 +30,11 @@ export default function Header() {
                         </span>
                     </div>
                     <div className='max-w-[420px] flex flex-col items-center justify-center mt-20 md:mt-6'>
-                        <p className='text-white text-lg text-center font-medium leading-8 -tracking-[0.5px]'>Crafting bold narratives and digital footprints for visionary brands across the diaspora.</p>
+                        <p className='text-white text-lg text-center font-medium leading-8 -tracking-[0.5px]'>We build your global profile through strategic media placements that showcase your expertise and accelerate your international career prospects.</p>
                         <div className='mt-6 flex gap-4'>
-                            <Button variant={'secondary'}>Book Press</Button>
+                            <Link href={'/about-us#contact-form'}>
+                                <Button variant={'secondary'}>Book Consultation</Button>
+                            </Link>
                             <Button variant={'transparentBg'} className='text-white'>See our Work</Button>
                         </div>
                     </div>
