@@ -16,9 +16,9 @@ export default function NavLink() {
             <Container>
                 <div className='relative w-full flex justify-center items-center'>
                     <div className='absolute -top-2 flex w-full justify-between -z-10'>
-                        <div className=''>
+                        <Link href={'/'}>
                             <LogoText />
-                        </div>
+                        </Link>
                         <div className='p-3 rounded-[12px] border border-white/20 md:hidden'>
                             <Menu />
                         </div>
