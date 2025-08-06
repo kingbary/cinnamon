@@ -13,7 +13,9 @@ export default async function IndividualBlogPage() {
     console.log("articles:", articles)
     return (
         <Suspense>
-            <SubBlog />
+            <div className='mx-2'>
+                <SubBlog />
+            </div>
         </Suspense>
     )
 }

@@ -49,7 +49,7 @@ export default function ArticleCard({ props }: { props: Props }) {
                     {props.content}
                 </div>
                 <div>
-                    <Link href={`/blog/${props.id}`} className='text-primary font-medium hover:underline'>Read Full Article</Link>
+                    <Link href={`/press/${props.id}`} className='text-primary font-medium hover:underline'>Read Full Article</Link>
                 </div>
             </div>
         </div>

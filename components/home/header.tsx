@@ -7,7 +7,7 @@ export default function Header() {
 
 
     return (
-        <header className='relative pt-2 h-screen'>
+        <header className='relative pt-2 min-h-screen mx-2'>
             {/* <Container className='first-container bg-dark flex items-center py-4 h-fit'>
                 <div className='pt-20 flex flex-col items-center justify-center'>
                     <h5 className='text-[#B8B8CC] text-[32px] font-semibold leading-8 -tracking-[2px]'>PR that puts you in the</h5>
@@ -29,9 +29,11 @@ export default function Header() {
                             <span className='hidden md:inline'>Spotlight</span>
                         </span>
                     </div>
-                    <div className='max-w-[420px] flex flex-col items-center justify-center mt-20 md:mt-6'>
-                        <p className='text-white text-lg text-center font-medium leading-8 -tracking-[0.5px]'>We build your global profile through strategic media placements that showcase your expertise and accelerate your international career prospects.</p>
-                        <div className='mt-6 flex gap-4'>
+                    <div className='max-w-[420px] flex flex-col items-center justify-center px-4 mt-20 md:mt-6'>
+                        <div className='px-4'>
+                            <p className='text-white text-lg text-center font-medium leading-8 -tracking-[0.5px]'>We build your global profile through strategic media placements that showcase your expertise and accelerate your international career prospects.</p>
+                        </div>
+                        <div className='mt-6 flex gap-4 px-4'>
                             <Link href={'/about-us#contact-form'}>
                                 <Button variant={'secondary'}>Book Consultation</Button>
                             </Link>

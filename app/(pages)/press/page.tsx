@@ -15,9 +15,11 @@ export default async function BlogPage() {
     console.log("articles:", articles)
     return (
         <Suspense>
-            <PageHeader title='press' />
-            <FeaturedArticle />
-            <ArticlesSection />
+            <div className='mx-2'>
+                <PageHeader title='press' />
+                <FeaturedArticle />
+                <ArticlesSection />
+            </div>
         </Suspense>
     )
 }

@@ -10,12 +10,12 @@ export default function Footer() {
         { name: "X (fka. Twitter)", link: "https://x.com/cinnamon" },
     ]
 
-    const otherLinks = [
-        { name: "Privacy Policy", link: "privacy-policy" },
-        { name: "Terms and Condition", link: "terms-and-condition" },
-    ]
+    // const otherLinks = [
+    //     { name: "Privacy Policy", link: "privacy-policy" },
+    //     { name: "Terms and Condition", link: "terms-and-condition" },
+    // ]
     return (
-        <footer className='bg-[#14141A] flex flex-col items-center px-4 py-6 md:p-16 rounded-3xl text-[#CFCFE5]'>
+        <footer className='bg-[#14141A] flex flex-col items-center px-4 mx-2 py-6 md:p-16 rounded-3xl text-[#CFCFE5]'>
             <span
                 className='footer-logo'
                 style={{ fontFeatureSettings: "'ss02' on" }}
@@ -29,11 +29,11 @@ export default function Footer() {
                         <Link key={index} href={item.link} className='px-3 py-2 font-sans text-sm md:text-xl text-left'>{item.name}</Link>
                     ))}
                 </div>
-                <div className='flex flex-col items-end gap-2 md:items-center md:flex-row'>
+                {/* <div className='flex flex-col items-end gap-2 md:items-center md:flex-row'>
                     {otherLinks.map((item, index) => (
                         <Link key={index} href={item.link} className='px-3 py-2 font-sans text-sm md:text-xl text-left'>{item.name}</Link>
                     ))}
-                </div>
+                </div> */}
             </div>
         </footer>
     )

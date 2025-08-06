@@ -125,7 +125,7 @@ export default function EpisodeSection() {
             {/* All episodes  */}
             <div className='flex flex-col items-start w-full' id='all-episodes'>
                 <div className='flex flex-col w-full justify-start md:items-center gap-4 md:gap-[120px] md:flex-row'>
-                    <h2>All episodes </h2>
+                    <h2 className='text-center md:text-left'>All episodes </h2>
                     <div className='relative bg-[#F5F5FA] pl-10 pr-4 border border-[#D9D9E5] rounded-[80px]'>
                         <input
                             placeholder='Search'
@@ -167,7 +167,7 @@ export default function EpisodeSection() {
                     </div>
                 )}
                 <div className='mt-8'>
-                    <h2>Popular episodes </h2>
+                    <h2 className='text-center md:text-left'>Popular episodes </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
                         {currentEpisodes.slice(0, 2).map((item, index) => (
                             <VideoCard key={startIndex + index} props={item} />

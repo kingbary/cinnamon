@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${instrumentSans.variable} ${poppins.variable} ${geist.variable} bg-background overflow-x-hidden px-2 pb-2 antialiased font-[family-name:var(--font-instrument-sans)]`}
+        className={`${instrumentSans.variable} ${poppins.variable} ${geist.variable} bg-background overflow-x-hidden pb-2 antialiased font-[family-name:var(--font-instrument-sans)]`}
 
       >
         {children}

@@ -21,7 +21,7 @@ export default function FeaturedSection() {
         }
     }
     return (
-        <div className='relative bg-[#FFD480] mb-8 overflow-hidden rounded-3xl md:rounded-t-[80px] md:rounded-b-[40px]'>
+        <div className='relative bg-[#FFD480] mb-8 mx-2 overflow-hidden rounded-3xl md:rounded-t-[80px] md:rounded-b-[40px]'>
             <Image className='hidden absolute top-0 left-0 md:block' src={'/images/headphone.png'} width={600} height={600} alt='headphone' />
             <Image className='hidden absolute bottom-0 right-0 md:block' src={'/images/retro-mic.png'} width={600} height={600} alt='microphone' />
             <div className='flex w-full justify-center mt-4'>

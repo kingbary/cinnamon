@@ -56,7 +56,7 @@ export default function ServicesSection() {
                         zIndex: services.length
                     }}
                 >
-                    <Container className='pt-8 pb-16 mt-8 px-0'>
+                    <Container className='pt-8 pb-16 mt-8 px-2'>
                         <div className='w-full flex flex-col justify-between items-center gap-8 md:flex-row lg:gap-[120px]'>
                             <div className='w-full text-black'>
                                 <SectionTitle text="services" />
@@ -75,7 +75,7 @@ export default function ServicesSection() {
                             <div className='w-full'>
                                 <Image
                                     src={service.image}
-                                    className='w-full rounded-lg shadow-2xl'
+                                    className='w-full rounded-lg'
                                     width={620}
                                     height={630}
                                     alt={`${service.title} - service illustration`}
