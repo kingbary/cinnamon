@@ -2,10 +2,22 @@ import ContactUsSection from '@/components/podcast/contact-us-section'
 import EpisodeSection from '@/components/podcast/episode-section'
 import VideoSection from '@/components/podcast/video-section'
 import PageHeader from '@/components/universal/page-header'
+import { ExpandedPodcast, fetchPodcasts } from '@/sanity/lib/queries'
 import Image from 'next/image'
 import React from 'react'
 
-export default function PodcastPage() {
+
+let allPodcastsData: ExpandedPodcast[] = []
+
+try {
+    const allPodcastsResult = await fetchPodcasts()
+    allPodcastsData = allPodcastsResult.data || []
+
+} catch (error) {
+    console.error('Error fetching podcast data:', error)
+}
+
+export default async function PodcastPage() {
     return (
         <div className='mx-2'>
             <div className='relative rounded-3xl mt-2 mb-8 overflow-hidden'>
@@ -14,7 +26,7 @@ export default function PodcastPage() {
                 <PageHeader title='podcast' className='bg-[#FFD480]' titleClassName='text-[#402F0D]' />
             </div>
             <VideoSection />
-            <EpisodeSection />
+            <EpisodeSection allEpisodes={allPodcastsData} />
             <ContactUsSection />
         </div>
     )

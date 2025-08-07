@@ -2,10 +2,11 @@
 import React from 'react'
 import Container from '../universal/container'
 import { Search } from 'lucide-react'
-import VideoCard from '../universal/video-card'
+import VideoCard, { VideoProps } from '../universal/video-card'
 import Pagination from '../universal/pagination'
+import { ExpandedPodcast } from '@/sanity/lib/queries'
 
-export default function EpisodeSection() {
+export default function EpisodeSection({ allEpisodes }: { allEpisodes: ExpandedPodcast[] }) {
     const [currentPage, setCurrentPage] = React.useState(1)
     const [searchTerm, setSearchTerm] = React.useState('')
     const itemsPerPage = 4
@@ -14,98 +15,23 @@ export default function EpisodeSection() {
         setCurrentPage(page)
     }
 
-    const allEpisode = [
-        {
-            title: "Lorem ipsum rutrum eget congue nisi sed urna enim nec tempor ultricies.",
-            name: "John Doe",
-            avatarUrl: "/images/avatar.png",
-            duration: "5 minutes",
-            tag: {
-                text: "Lifestyle and Travel",
-                bgColor: "#E5FFFF",
-                textColor: "#14CCCC"
-            }
-        },
-        {
-            title: "Lorem ipsum rutrum eget congue nisi sed urna enim nec tempor ultricies.",
-            name: "John Doe",
-            avatarUrl: "/images/avatar.png",
-            duration: "5 minutes",
-            tag: {
-                text: "Lifestyle and Travel",
-                bgColor: "#E5FFFF",
-                textColor: "#14CCCC"
-            }
-        },
-        {
-            title: "Lorem ipsum rutrum eget congue nisi sed urna enim nec tempor ultricies.",
-            name: "John Doe",
-            avatarUrl: "/images/avatar.png",
-            duration: "5 minutes",
-            tag: {
-                text: "Lifestyle and Travel",
-                bgColor: "#E5FFFF",
-                textColor: "#14CCCC"
-            }
-        },
-        {
-            title: "Lorem ipsum rutrum eget congue nisi sed urna enim nec tempor ultricies.",
-            name: "John Doe",
-            avatarUrl: "/images/avatar.png",
-            duration: "5 minutes",
-            tag: {
-                text: "Lifestyle and Travel",
-                bgColor: "#E5FFFF",
-                textColor: "#14CCCC"
-            }
-        },
-        {
-            title: "Lorem ipsum rutrum eget congue nisi sed urna enim nec tempor ultricies.",
-            name: "John Doe",
-            avatarUrl: "/images/avatar.png",
-            duration: "5 minutes",
-            tag: {
-                text: "Lifestyle and Travel",
-                bgColor: "#E5FFFF",
-                textColor: "#14CCCC"
-            }
-        },
-        {
-            title: "Episode 6 - Another interesting episode title here",
-            name: "Jane Smith",
-            avatarUrl: "/images/avatar.png",
-            duration: "8 minutes",
-            tag: {
-                text: "Technology",
-                bgColor: "#FFE5F1",
-                textColor: "#FF1744"
-            }
-        },
-        {
-            title: "Episode 7 - More content for pagination testing",
-            name: "Mike Johnson",
-            avatarUrl: "/images/avatar.png",
-            duration: "12 minutes",
-            tag: {
-                text: "Business",
-                bgColor: "#E5F3FF",
-                textColor: "#2196F3"
-            }
-        },
-        {
-            title: "Episode 8 - Final episode in our test data",
-            name: "Sarah Wilson",
-            avatarUrl: "/images/avatar.png",
-            duration: "6 minutes",
-            tag: {
-                text: "Health",
-                bgColor: "#E8F5E8",
-                textColor: "#4CAF50"
-            }
+    const transformPodcastData = (item: ExpandedPodcast): VideoProps => ({
+        title: item.title || "Untitled Podcast",
+        name: item.authorData?.name || "Unknown Author",
+        avatarUrl: item.authorData?.imageUrl || "/images/avatar.png",
+        duration: item.duration || "Unknown duration",
+        videoUrl: item.videoFileUrl || "/video.mp4",
+        posterUrl: item.posterImageUrl || "/images/video-overlay.png",
+        tag: {
+            text: item.tag?.text || "Podcast",
+            bgColor: item.tag?.bgColor || "#E5FFFF",
+            textColor: item.tag?.textColor || "#14CCCC"
         }
-    ]
+    });
 
-    const filteredEpisodes = allEpisode.filter(episode =>
+    const transformedEpisodes = allEpisodes.map(transformPodcastData);
+
+    const filteredEpisodes = transformedEpisodes.filter(episode =>
         episode.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         episode.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         episode.tag.text.toLowerCase().includes(searchTerm.toLowerCase())
@@ -122,10 +48,9 @@ export default function EpisodeSection() {
 
     return (
         <Container className='pt-8 pb-16 flex-col px-0'>
-            {/* All episodes  */}
             <div className='flex flex-col items-start w-full' id='all-episodes'>
                 <div className='flex flex-col w-full justify-start md:items-center gap-4 md:gap-[120px] md:flex-row'>
-                    <h2 className='text-center md:text-left'>All episodes </h2>
+                    <h2 className='text-center md:text-left'>All episodes</h2>
                     <div className='relative bg-[#F5F5FA] pl-10 pr-4 border border-[#D9D9E5] rounded-[80px]'>
                         <input
                             placeholder='Search'
@@ -146,7 +71,7 @@ export default function EpisodeSection() {
                 <div className="mt-16 w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                     {currentEpisodes.length > 0 ? (
                         currentEpisodes.map((item, index) => (
-                            <VideoCard key={startIndex + index} props={item} />
+                            <VideoCard key={`current-${startIndex + index}`} props={item} />
                         ))
                     ) : (
                         <div className="col-span-2 text-center py-8 text-gray-500">
@@ -166,11 +91,12 @@ export default function EpisodeSection() {
                         />
                     </div>
                 )}
-                <div className='mt-8'>
-                    <h2 className='text-center md:text-left'>Popular episodes </h2>
+
+                <div className='mt-8 w-full'>
+                    <h2 className='text-center md:text-left'>Popular episodes</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
-                        {currentEpisodes.slice(0, 2).map((item, index) => (
-                            <VideoCard key={startIndex + index} props={item} />
+                        {transformedEpisodes.slice(0, 2).map((item, index) => (
+                            <VideoCard key={`popular-${index}`} props={item} />
                         ))}
                     </div>
                 </div>
