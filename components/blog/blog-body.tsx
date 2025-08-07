@@ -12,7 +12,7 @@ export default function BlogBody() {
     return (
         <Container>
             <div>
-                <Link href={'/blog'} >
+                <Link href={'/press'} >
                     <Button variant={'outline'} className=' text-[#14141A] flex w-fit rounded-full'><ArrowLeft /></Button>
                 </Link>
                 <div className='py-6 flex flex-col gap-3'>
