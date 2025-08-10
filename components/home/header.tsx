@@ -29,7 +29,7 @@ export default function Header() {
                             <span className='hidden md:inline'>Spotlight</span>
                         </span>
                     </div>
-                    <div className='max-w-[420px] flex flex-col items-center justify-center px-4 mt-20 md:mt-6'>
+                    <div className='max-w-[700px] flex flex-col items-center justify-center px-4 mt-20 md:mt-6'>
                         <div className='px-4'>
                             <p className='text-white text-lg text-center font-medium leading-8 -tracking-[0.5px]'>We build your global profile through strategic media placements that showcase your expertise and accelerate your international career prospects.</p>
                         </div>

@@ -28,16 +28,7 @@ export type Podcasts = {
     [internalGroqTypeReferenceTo]?: "author";
   };
   duration: string;
-  videoFile: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
-    };
-    media?: unknown;
-    _type: "file";
-  };
+  videoUrl: string;
   posterImage?: {
     asset?: {
       _ref: string;

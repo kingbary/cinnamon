@@ -6,6 +6,8 @@ import VideoCard, { VideoProps } from '../universal/video-card'
 import Pagination from '../universal/pagination'
 import { ExpandedPodcast } from '@/sanity/lib/queries'
 
+
+
 export default function EpisodeSection({ allEpisodes }: { allEpisodes: ExpandedPodcast[] }) {
     const [currentPage, setCurrentPage] = React.useState(1)
     const [searchTerm, setSearchTerm] = React.useState('')
@@ -20,7 +22,7 @@ export default function EpisodeSection({ allEpisodes }: { allEpisodes: ExpandedP
         name: item.authorData?.name || "Unknown Author",
         avatarUrl: item.authorData?.imageUrl || "/images/avatar.png",
         duration: item.duration || "Unknown duration",
-        videoUrl: item.videoFileUrl || "/video.mp4",
+        videoUrl: item.videoUrl || "/video.mp4", // Use videoUrl directly - VideoCard will handle conversion
         posterUrl: item.posterImageUrl || "/images/video-overlay.png",
         tag: {
             text: item.tag?.text || "Podcast",

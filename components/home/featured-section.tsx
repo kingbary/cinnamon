@@ -39,7 +39,7 @@ export default async function FeaturedSection() {
         name: item.authorData?.name || "Unknown Author",
         avatarUrl: item.authorData?.imageUrl || "/images/avatar.png",
         duration: item.duration || "Unknown duration",
-        videoUrl: item.videoFileUrl || "/video.mp4",
+        videoUrl: item.videoUrl || "/video.mp4",
         posterUrl: item.posterImageUrl || "/images/video-overlay.png",
         tag: {
             text: item.tag?.text || "Podcast",

@@ -35,13 +35,14 @@ export const podcastType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "videoFile",
-      title: "Video File",
-      type: "file",
-      options: {
-        accept: "video/*",
-      },
-      validation: (Rule) => Rule.required(),
+      name: "videoUrl",
+      title: "Video URL",
+      type: "url",
+      description: "Enter the URL/link to the video (YouTube, Vimeo, etc.)",
+      validation: (Rule) => Rule.required().uri({
+        allowRelative: false,
+        scheme: ['http', 'https']
+      }),
     }),
     defineField({
       name: "posterImage",
@@ -101,7 +102,7 @@ export const podcastType = defineType({
       name: "featured",
       title: "Featured Video",
       type: "boolean",
-      description: "Mark this video to be featured in the featured section",
+      description: "Mark this video to be featured in the hero section",
       initialValue: false,
     }),
     defineField({
