@@ -248,6 +248,29 @@ body {
   letter-spacing: -6px;
 }
 
+.our-principle-title-text {
+  font-family: var(--font-poppins);
+  color: #fff;
+  font-feature-settings:
+    "ss01" on,
+    "ss02" on;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 100% */
+  letter-spacing: -3px;
+}
+
+.principle-card-title {
+  color: #fff;
+  font-family: "Instrument Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 34px;
+  letter-spacing: -2px;
+}
+
 .hide-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -283,6 +306,18 @@ body {
   .footer-logo {
     font-size: 150px;
     letter-spacing: -16px;
+  }
+  .our-principle-title-text {
+    font-size: 72px;
+    line-height: 72px; /* 100% */
+    letter-spacing: -6px;
+  }
+
+  .principle-card-title {
+    font-size: 42px;
+    font-style: normal;
+    line-height: 56px; /* 116.667% */
+    letter-spacing: -2px;
   }
 }
 

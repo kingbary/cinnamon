@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '../universal/container'
 import { Button } from '../ui/button'
+import Link from 'next/link'
 
 export default function ContactUsSection() {
     return (
@@ -9,10 +10,12 @@ export default function ContactUsSection() {
                 <Container>
                     <div className="py-6 px-4 flex flex-col items-center gap-3 w-full pb-20">
                         <h2 className="text-white text-center">
-                            Lorem ipsum ultricies etiam in erat turpis a.
+                            Want to feature on our podcast?
                         </h2>
-                        <p className='text-center text-white'>Lorem ipsum consectetur pretium diam aliquam praesent blandit pellentesque eget sed eu.</p>
-                        <Button variant={'secondary'} className='w-fit'>Contact us</Button>
+                        <p className='text-center text-white'>You can join us on our podcast or feature on other podcasts to boost your visibility, leave us a message!</p>
+                        <Link href={'/about-us#contact-form'}>
+                            <Button variant={'secondary'} className='w-fit'>Contact us</Button>
+                        </Link>
                     </div>
                 </Container>
             </div>
