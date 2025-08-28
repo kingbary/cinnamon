@@ -4,9 +4,12 @@ import Container from '../universal/container'
 import { Search } from 'lucide-react'
 import Pagination from '../universal/pagination'
 import ArticleCard from './article-card'
-import { articles } from '@/data/articles'
+import { ResolvedPost } from '@/types/post'
+interface ArticlesSectionProps {
+    articles: ResolvedPost[]
+}
 
-export default function ArticlesSection() {
+export default function ArticlesSection({ articles }: ArticlesSectionProps) {
     const [currentPage, setCurrentPage] = React.useState(1)
     const [searchTerm, setSearchTerm] = React.useState('')
     const itemsPerPage = 6
@@ -15,25 +18,33 @@ export default function ArticlesSection() {
         setCurrentPage(page)
     }
 
-    const filteredArticles = articles.filter(episode =>
-        episode.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        episode.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        episode.tag.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    const filteredArticles = articles.filter(article => {
+        if (!article) return false;
+
+        const matchesSearch =
+            article.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            article.author?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            article.categories?.some(cat =>
+                cat.title?.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+        return matchesSearch;
+    });
 
     const totalItems = filteredArticles.length
     const startIndex = (currentPage - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
-    const currentArticle = filteredArticles.slice(startIndex, endIndex)
+    const currentArticles = filteredArticles.slice(startIndex, endIndex)
 
     React.useEffect(() => {
         setCurrentPage(1)
     }, [searchTerm])
+
     return (
         <Container className='pt-8 pb-16 flex-col px-0'>
             <div>
                 <div className='flex flex-col w-full justify-start md:items-center gap-4 md:gap-[120px] md:flex-row'>
-                    <h2>All episodes </h2>
+                    <h2>All episodes</h2>
                     <div className='relative bg-[#F5F5FA] pl-10 pr-4 border border-[#D9D9E5] rounded-[80px]'>
                         <input
                             placeholder='Search'
@@ -46,17 +57,20 @@ export default function ArticlesSection() {
                 </div>
                 {searchTerm && (
                     <div className="mt-4 text-sm text-gray-600">
-                        Found {totalItems} article matching &quot;{searchTerm}&quot;
+                        Found {totalItems} article{totalItems !== 1 ? 's' : ''} matching &quot;{searchTerm}&quot;
                     </div>
                 )}
                 <div className="mt-6 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:mt-16">
-                    {currentArticle.length > 0 ? (
-                        currentArticle.map((item, index) => (
-                            <ArticleCard key={index} props={item} />
+                    {currentArticles.length > 0 ? (
+                        currentArticles.map((article) => (
+                            <ArticleCard
+                                key={article._id}
+                                article={article}
+                            />
                         ))
                     ) : (
-                        <div className="col-span-2 text-center py-8 text-gray-500">
-                            {searchTerm ? 'No episodes found matching your search.' : 'No episodes available.'}
+                        <div className="col-span-3 text-center py-8 text-gray-500">
+                            {searchTerm ? 'No articles found matching your search.' : 'No articles available.'}
                         </div>
                     )}
                 </div>
@@ -74,8 +88,11 @@ export default function ArticlesSection() {
                 <div className='mt-8 mb-16'>
                     <h2>Recent Articles</h2>
                     <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-                        {articles.slice(0, 3).map((item, index) => (
-                            <ArticleCard key={startIndex + index} props={item} />
+                        {articles.slice(0, 3).map((article) => (
+                            <ArticleCard
+                                key={`recent-${article._id}`}
+                                article={article}
+                            />
                         ))}
                     </div>
                 </div>

@@ -1,5 +1,6 @@
-import { Author, Post } from "@/sanity.types";
+import { Author } from "@/sanity.types";
 import { loadQuery } from "./client";
+import { ResolvedPost } from "@/types/post";
 export interface ExpandedPodcast {
   _id: string;
   title: string;
@@ -26,8 +27,75 @@ export const fetchAuthor = () =>
   });
 
 export const fetchBlogArticles = () =>
-  loadQuery<Post[]>({
-    query: `*[_type == "post"]`,
+  loadQuery<ResolvedPost[]>({
+    query: `
+  *[_type == "post"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    body[]{
+      ...,
+      _type == "block" => {
+        ...,
+        children[]{
+          ...
+        }
+      }
+    },
+    author->{
+      name,
+      image
+    },
+    categories[]->{
+      title
+    }
+  }
+`,
+  });
+
+export const fetchBlogBySlug = (slug: string) =>
+  loadQuery<ResolvedPost>({
+    query: `
+      *[_type == "post" && slug.current == $slug][0] {
+        _id,
+        title,
+        slug,
+        mainImage,
+        publishedAt,
+        body[]{
+          ...,
+          _type == "block" => {
+            ...,
+            children[]{
+              ...
+            }
+          },
+          _type == "image" => {
+            ...,
+            asset-> {
+              _id,
+              url
+            }
+          }
+        },
+        author->{
+          name,
+          image {
+            asset-> {
+              _id,
+              url
+            }
+          }
+        },
+        categories[]->{
+          _id,
+          title
+        }
+      }
+    `,
+    params: { slug },
   });
 
 export const fetchPodcasts = () =>
