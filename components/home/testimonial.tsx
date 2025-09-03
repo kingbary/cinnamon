@@ -2,11 +2,36 @@ import React from 'react'
 
 export default function Testimonial() {
     const testimonials = [
-        { title: 'Testimonial headline (a part of the testimonial that stands out)', content: 'Lorem ipsum amet convallis id nam platea suspendisse sit vulputate sed neque aliquet lacus vel neque proin id senectus auctor rutrum in mauris arcu amet id porttitor pulvinar integer sed eget tristique.', author: 'John Doe', location: 'Lagos, Nigeria' },
-        { title: 'Testimonial headline (a part of the testimonial that stands out)', content: 'Lorem ipsum amet convallis id nam platea suspendisse sit vulputate sed neque aliquet lacus vel neque proin id senectus auctor rutrum in mauris arcu amet id porttitor pulvinar integer sed eget tristique.', author: 'John Doe', location: 'Lagos, Nigeria' },
-        { title: 'Testimonial headline (a part of the testimonial that stands out)', content: 'Lorem ipsum amet convallis id nam platea suspendisse sit vulputate sed neque aliquet lacus vel neque proin id senectus auctor rutrum in mauris arcu amet id porttitor pulvinar integer sed eget tristique.', author: 'John Doe', location: 'Lagos, Nigeria' },
-        { title: 'Testimonial headline (a part of the testimonial that stands out)', content: 'Lorem ipsum amet convallis id nam platea suspendisse sit vulputate sed neque aliquet lacus vel neque proin id senectus auctor rutrum in mauris arcu amet id porttitor pulvinar integer sed eget tristique.', author: 'John Doe', location: 'Lagos, Nigeria' },
-        { title: 'Testimonial headline (a part of the testimonial that stands out)', content: 'Lorem ipsum amet convallis id nam platea suspendisse sit vulputate sed neque aliquet lacus vel neque proin id senectus auctor rutrum in mauris arcu amet id porttitor pulvinar integer sed eget tristique.', author: 'John Doe', location: 'Lagos, Nigeria' },
+        {
+            title: 'Finally getting the recognition I deserve',
+            content: 'This platform put me in front of global media outlets I never thought I’d reach. It has elevated my credibility and opened international doors.',
+            author: 'Iyinoluwa Demilade',
+            location: 'Lagos, Nigeria'
+        },
+        {
+            title: 'A powerful boost for my career',
+            content: 'I always knew the value of PR but struggled to get placements. This platform made it effortless, and now my profile is recognized globally.',
+            author: 'Tobi Akinwumi',
+            location: 'Abuja, Nigeria'
+        },
+        {
+            title: 'Strategic media exposure that works',
+            content: 'The team helped craft my story and positioned me in the right media spaces. I’ve gained authentic visibility and valuable new opportunities.',
+            author: 'Hakeem Hasssan',
+            location: 'Lagos, Nigeria'
+        },
+        {
+            title: 'Game-changing for thought leaders',
+            content: 'As someone building authority in my industry, this platform has been crucial. It bridged the gap between my expertise and global recognition.',
+            author: 'Mark Akindele',
+            location: 'Lagos, Nigeria'
+        },
+        {
+            title: 'The perfect tool for global positioning',
+            content: 'This is more than PR—it’s about shaping perception. The placements I’ve received have amplified my voice and accelerated my career growth.',
+            author: 'Chude Jonah',
+            location: 'Enugu, Nigeria'
+        },
     ]
 
     return (

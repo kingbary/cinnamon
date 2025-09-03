@@ -21,7 +21,6 @@ export default function PageHeader({ title, subtext, className, titleClassName }
                     </div>
                     <div className='max-w-[532px] flex flex-col items-center justify-center'>
                         <p className='text-white font-medium text-center'>{subtext}</p>
-
                     </div>
                 </div>
             </Container>
