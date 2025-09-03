@@ -19,7 +19,7 @@ export default async function BlogPage() {
         <Suspense>
             <div className='mx-2'>
                 <PageHeader title='press' />
-                <FeaturedArticle />
+                <FeaturedArticle articles={articles} />
                 <ArticlesSection articles={articles} />
             </div>
         </Suspense>

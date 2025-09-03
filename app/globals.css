@@ -359,3 +359,7 @@ body {
 .animate-heightGrow {
   animation: heightGrow 5s ease-out forwards;
 }
+
+a:hover {
+  text-decoration: underline;
+}

@@ -61,6 +61,14 @@ export default function BlogBody({ article, allArticles }: BlogBodyProps) {
                     {children}
                 </p>
             ),
+            li: ({ children }) => (
+                <li className='text-sm md:text-xl leading-normal md:leading-[32px] -tracking-[0.003em] text-[#737380] mb-4'>
+                    {children}
+                </li>
+            ),
+            a: ({ children }) => (
+                <a className='text-[#5214CC] underline' href="">{children}</a>
+            )
         },
     };
 

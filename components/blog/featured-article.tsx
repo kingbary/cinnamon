@@ -4,19 +4,44 @@ import SectionTitle from '../universal/section-title'
 import { Button } from '../ui/button'
 import Image from 'next/image'
 import { LineStroke } from '../vectors/line-stroke'
+import { ResolvedPost, TextBlock } from '@/types/post'
+import { urlForImage } from '@/sanity/lib/image'
+import Link from 'next/link'
 
-export default function FeaturedArticle() {
+interface FeaturedArticlesProps {
+    articles: ResolvedPost[]
+}
+
+export default function FeaturedArticle({ articles }: FeaturedArticlesProps) {
+    const featuredArticle = articles[0] ?? [];
+    const getExcerpt = (): string => {
+        if (!featuredArticle.body) return '';
+
+        const firstTextBlock = featuredArticle?.body.find(
+            (block): block is TextBlock =>
+                block._type === 'block' && block.style === 'normal'
+        );
+
+        return firstTextBlock?.children?.[0]?.text || '';
+    };
+
+    const excerpt = getExcerpt();
     return (
         <Container className='pt-8 pb-16 mt-8'>
             <div className='w-full flex flex-col justify-between gap-8 md:flex-row lg:gap-[120px]'>
                 <div className='w-full'>
                     <SectionTitle text="Featured Article" />
                     <div className='flex flex-col gap-3 mt-4'>
-                        <h2>Lorem ipsum molestie nunc egestas pretium scelerisque turpis magna.</h2>
+                        <h2>{featuredArticle?.title}</h2>
                         <div className="flex">
                             <div className='flex gap-2 items-center'>
-                                <Image src={'/images/avatar.png'} width={24} height={24} alt='avatar image' />
-                                <p className='font-medium text-xs whitespace-nowrap lg:text-base'>John Doe</p>
+                                <Image
+                                    src={featuredArticle?.author?.image ? urlForImage(featuredArticle?.author?.image).url() : '/images/placeholder.png'}
+                                    alt={featuredArticle?.mainImage?.alt || featuredArticle?.title || 'Article image'}
+                                    width={24}
+                                    height={24}
+                                />
+                                <p className='font-medium text-xs whitespace-nowrap lg:text-base'>{featuredArticle?.author?.name}</p>
                                 <LineStroke className='ml-2' />
                             </div>
                             <div className='flex gap-4 items-center pl-4'>
@@ -25,16 +50,18 @@ export default function FeaturedArticle() {
                             </div>
                             <div className='flex gap-4 items-center pl-4'>
                                 <div className={`rounded-md text-xs whitespace-nowrap lg:text-sm font-medium px-2 py-1`} style={{ backgroundColor: '#EEE5FF', color: '#5214CC' }}>
-                                    Lifestyle and Travel
+                                    {featuredArticle?.categories?.[0]?.title || 'Category'}
                                 </div>
                             </div>
                         </div>
-                        <p className='mt-3'>Lorem ipsum scelerisque elementum placerat posuere id nec nibh ullamcorper volutpat vestibulum viverra cras gravida at pretium aliquet morbi eget elit rhoncus faucibus sit placerat nulla diam tincidunt mauris pretium suspendisse lobortis enim et placerat a aenean in in etiam scelerisque aliquet in suspendisse dignissim.</p>
-                        <Button className='w-fit'>Read Full Article</Button>
+                        <p className='mt-3'>{excerpt}</p>
+                        <Link href={featuredArticle?.slug?.current ? `/press/${featuredArticle.slug.current}` : '/'}>
+                            <Button className='w-fit'>Read Full Article</Button>
+                        </Link>
                     </div>
                 </div>
-                <div className='w-full'>
-                    <Image src={'/images/featured-article-img.png'} className='w-full' width={620} height={448} alt='cinnamon website - featured article image' />
+                <div className='w-full rounded-2xl md:rounded-3xl overflow-hidden'>
+                    <Image src={featuredArticle?.mainImage ? urlForImage(featuredArticle?.mainImage).url() : '/images/placeholder.png'} className='w-full object-cover' width={620} height={448} alt='cinnamon website - featured article image' />
                 </div>
             </div>
         </Container>
