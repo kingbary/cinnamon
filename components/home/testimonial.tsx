@@ -3,6 +3,12 @@ import React from 'react'
 export default function Testimonial() {
     const testimonials = [
         {
+            title: 'Cinnamon understood my vision',
+            content: 'As an individual building my brand, working with CinnamonPR was exactly what I needed. They took the time to understand my goals, crafted the right narrative, and gave my brand the visibility it truly deserved. Beyond just PR, they became genuine partners in my journey.I’m really grateful for their impact on my growth. ',
+            author: 'Jesse Amamgbu',
+            location: 'Lagos, Nigeria'
+        },
+        {
             title: 'Finally getting the recognition I deserve',
             content: 'This platform put me in front of global media outlets I never thought I’d reach. It has elevated my credibility and opened international doors.',
             author: 'Iyinoluwa Demilade',
