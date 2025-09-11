@@ -3,5 +3,6 @@ export const navLinks = [
   { name: "Press", route: "/press" },
   { name: "Podcast", route: "/podcast" },
   { name: "Request Quote", route: "/request-quote" },
+  { name: "Feedback", route: "/feedback" },
   { name: "About us", route: "/about-us" },
 ];
