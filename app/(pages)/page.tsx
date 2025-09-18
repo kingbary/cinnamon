@@ -8,11 +8,11 @@ import Testimonial from "@/components/home/testimonial";
 export const metadata = {
   title: "Cinnamon | Personal PR Consultancy",
   description:
-    "Cinnamon crafts bold narratives and digital footprints for visionary brands and professionals. Discover our PR services, media placements, and strategies for building global visibility and lasting impact.",
+    "Cinnamon builds global visibility for visionary brands and professionals through PR services, media placements, and strategic storytelling.",
   openGraph: {
     title: "Cinnamon | Personal PR Consultancy",
     description:
-      "Cinnamon crafts bold narratives and digital footprints for visionary brands and professionals. Discover our PR services, media placements, and strategies for building global visibility and lasting impact.",
+      "Cinnamon builds global visibility for visionary brands and professionals through PR services, media placements, and strategic storytelling.",
     url: "https://thecinnamon.io/",
     siteName: "Cinnamon",
     images: [
@@ -30,7 +30,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Cinnamon | Personal PR Consultancy",
     description:
-      "Cinnamon crafts bold narratives and digital footprints for visionary brands and professionals. Discover our PR services, media placements, and strategies for building global visibility and lasting impact.",
+      "Cinnamon builds global visibility for visionary brands and professionals through PR services, media placements, and strategic storytelling.",
     images: ["https://thecinnamon.io/cinnamon.png"],
     site: "@thecinnamonio",
   },
