@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Instrument_Sans, Poppins } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -31,9 +32,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XGV7XBGZQP"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XGV7XBGZQP');
+          `}
+        </Script>
+      </head>
       <body
         className={`${instrumentSans.variable} ${poppins.variable} ${geist.variable} bg-background overflow-x-hidden pb-2 antialiased font-[family-name:var(--font-instrument-sans)]`}
-
       >
         {children}
       </body>
