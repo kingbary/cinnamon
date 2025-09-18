@@ -6,7 +6,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://thecinnamon.io/</loc>
-        <lastmod>2025-09-01</lastmod>
+        <lastmod>2025-09-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -14,7 +14,7 @@
     <!-- Press Page -->
     <url>
         <loc>https://thecinnamon.io/press</loc>
-        <lastmod>2025-09-12</lastmod>
+        <lastmod>2025-09-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -22,7 +22,7 @@
     <!-- Podcast Page -->
     <url>
         <loc>https://thecinnamon.io/podcast</loc>
-        <lastmod>2025-09-12</lastmod>
+        <lastmod>2025-09-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -30,7 +30,7 @@
     <!-- Podcast Page -->
     <url>
         <loc>https://thecinnamon.io/request-quote</loc>
-        <lastmod>2025-09-12</lastmod>
+        <lastmod>2025-09-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -38,7 +38,7 @@
     <!-- Feedback Page -->
     <url>
         <loc>https://thecinnamon.io/feedback</loc>
-        <lastmod>2025-09-12</lastmod>
+        <lastmod>2025-09-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -48,7 +48,7 @@
     <!-- About Us -->
     <url>
         <loc>https://thecinnamon.io/about-us</loc>
-        <lastmod>2025-01-13</lastmod>
+        <lastmod>2025-01-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
