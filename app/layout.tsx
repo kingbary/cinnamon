@@ -22,7 +22,33 @@ const geist = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Cinnamon",
-  description: "Crafting bold narratives and digital footprints for visionary brands across the diaspora.",
+  description:
+    "Crafting bold narratives and digital footprints for visionary brands across the diaspora.",
+  openGraph: {
+    title: "Cinnamon",
+    description:
+      "Crafting bold narratives and digital footprints for visionary brands across the diaspora.",
+    url: "https://thecinnamon.io",
+    siteName: "Cinnamon",
+    images: [
+      {
+        url: "https://thecinnamon.io/cinnamon.png",
+        width: 1200,
+        height: 630,
+        alt: "Cinnamon",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cinnamon",
+    description:
+      "Crafting bold narratives and digital footprints for visionary brands across the diaspora.",
+    images: ["https://thecinnamon.io/cinnamon.png"],
+    site: "@thecinnamonio",
+  },
 };
 
 export default function RootLayout({
