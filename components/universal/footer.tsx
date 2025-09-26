@@ -6,8 +6,8 @@ export default function Footer() {
         { name: "Instagram", link: "https://www.instagram.com/cinnamon_io" },
         { name: "YouTube", link: "https://www.youtube.com/@CinnamonandFire" },
         { name: "LinkedIn", link: "https://www.linkedin.com/company/cinnamonpr/" },
-        // { name: "Facebook", link: "https://facebook.com/cinnamon" },
-        // { name: "X (fka. Twitter)", link: "https://x.com/cinnamon" },
+        { name: "Facebook", link: "https://www.facebook.com/share/1CMiNf28rb/?mibextid=wwXIfr" },
+        { name: "X (fka. Twitter)", link: "https://x.com/cinnamon__io" },
     ]
 
     // const otherLinks = [
