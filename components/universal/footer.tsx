@@ -4,7 +4,7 @@ import React from 'react'
 export default function Footer() {
     const socials = [
         { name: "Instagram", link: "https://www.instagram.com/cinnamon_io" },
-        { name: "YouTube", link: "https://youtube.com/cinnamon" },
+        { name: "YouTube", link: "https://www.youtube.com/@CinnamonandFire" },
         { name: "LinkedIn", link: "https://www.linkedin.com/company/cinnamonpr/" },
         // { name: "Facebook", link: "https://facebook.com/cinnamon" },
         // { name: "X (fka. Twitter)", link: "https://x.com/cinnamon" },
