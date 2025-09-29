@@ -5,11 +5,11 @@ import React from 'react'
 export const metadata = {
     title: "Request Speaker | Cinnamon",
     description:
-        "Request a speaker for your event, podcast, conference, or publication. Share your requirements and let Cinnamon match you with the perfect expert or guest.",
+        "Apply to be a speaker for an event, podcast, conference, or publication. Share your expertise and let Cinnamon connect you with opportunities to speak and inspire audiences.",
     openGraph: {
         title: "Request Speaker | Cinnamon",
         description:
-            "Request a speaker for your event, podcast, conference, or publication. Share your requirements and let Cinnamon match you with the perfect expert or guest.",
+            "Apply to be a speaker for an event, podcast, conference, or publication. Share your expertise and let Cinnamon connect you with opportunities to speak and inspire audiences.",
         url: "https://thecinnamon.io/request-speaker",
         siteName: "Cinnamon",
         images: [
@@ -27,7 +27,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "Request Speaker | Cinnamon",
         description:
-            "Request a speaker for your event, podcast, conference, or publication. Share your requirements and let Cinnamon match you with the perfect expert or guest.",
+            "Apply to be a speaker for an event, podcast, conference, or publication. Share your expertise and let Cinnamon connect you with opportunities to speak and inspire audiences.",
         images: ["https://thecinnamon.io/cinnamon.png"],
         site: "@thecinnamonio",
     },
@@ -38,7 +38,7 @@ export default function page() {
         <div className="min-h-screen bg-background mx-2">
             <PageHeader
                 title="Request Speaker"
-                subtext="Share your event details and requirements to get matched with the ideal speaker or expert for your audience."
+                subtext="Apply to be a speaker for an event, podcast, conference, or publication. Share your expertise and let Cinnamon connect you with speaking opportunities."
             />
             <SpeakerRequestForm />
         </div>
