@@ -27,10 +27,18 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- Podcast Page -->
+    <!-- Request Quote Page -->
     <url>
         <loc>https://thecinnamon.io/request-quote</loc>
         <lastmod>2025-09-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Request Speaker Page -->
+    <url>
+        <loc>https://thecinnamon.io/request-speaker</loc>
+        <lastmod>2025-09-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
