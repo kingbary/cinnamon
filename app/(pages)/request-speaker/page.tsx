@@ -1,14 +1,15 @@
 import SpeakerRequestForm from '@/components/request-speaker';
+import PageHeader from '@/components/universal/page-header';
 import React from 'react'
 
 export const metadata = {
     title: "Request Speaker | Cinnamon",
     description:
-        "Request a personalized PR strategy quote from Cinnamon. Share your goals and let our team craft a tailored plan to build your global visibility and professional reputation.",
+        "Request a speaker for your event, podcast, conference, or publication. Share your requirements and let Cinnamon match you with the perfect expert or guest.",
     openGraph: {
         title: "Request Speaker | Cinnamon",
         description:
-            "Request a personalized PR strategy quote from Cinnamon. Share your goals and let our team craft a tailored plan to build your global visibility and professional reputation.",
+            "Request a speaker for your event, podcast, conference, or publication. Share your requirements and let Cinnamon match you with the perfect expert or guest.",
         url: "https://thecinnamon.io/request-speaker",
         siteName: "Cinnamon",
         images: [
@@ -26,7 +27,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "Request Speaker | Cinnamon",
         description:
-            "Request a personalized PR strategy quote from Cinnamon. Share your goals and let our team craft a tailored plan to build your global visibility and professional reputation.",
+            "Request a speaker for your event, podcast, conference, or publication. Share your requirements and let Cinnamon match you with the perfect expert or guest.",
         images: ["https://thecinnamon.io/cinnamon.png"],
         site: "@thecinnamonio",
     },
@@ -34,6 +35,12 @@ export const metadata = {
 
 export default function page() {
     return (
-        <SpeakerRequestForm />
+        <div className="min-h-screen bg-background mx-2">
+            <PageHeader
+                title="Request Speaker"
+                subtext="Share your event details and requirements to get matched with the ideal speaker or expert for your audience."
+            />
+            <SpeakerRequestForm />
+        </div>
     )
 }
