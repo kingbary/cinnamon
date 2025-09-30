@@ -20,7 +20,6 @@ interface SpeakerRequestFormData {
 }
 
 const venues = [
-    'Your Publication',
     'Podcast',
     'Event',
     'Conference',
@@ -203,7 +202,7 @@ export default function SpeakerRequestForm() {
                                     render={({ field }) => (
                                         <Select onValueChange={field.onChange} value={field.value}>
                                             <SelectTrigger className="border-[#E1E1E5] border rounded-[8px] h-14 outline-none text-sm text-[#737380] w-full font-normal">
-                                                <SelectValue placeholder="ex: Your Publication, Podcast, Event, Conference, Educational Institutions, etc." />
+                                                <SelectValue placeholder="ex: Podcast, Event, Conference, Educational Institutions, etc." />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 {venues.map((venue) => (

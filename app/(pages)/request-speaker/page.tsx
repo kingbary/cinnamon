@@ -3,13 +3,13 @@ import PageHeader from '@/components/universal/page-header';
 import React from 'react'
 
 export const metadata = {
-    title: "Request Speaker | Cinnamon",
+    title: "Request a Speaker | Cinnamon",
     description:
-        "Apply to be a speaker for an event, podcast, conference, or publication. Share your expertise and let Cinnamon connect you with opportunities to speak and inspire audiences.",
+        "Request speakers for your event, podcast or conference. Let Cinnamon connect you with inspiring experts and thought leaders.",
     openGraph: {
-        title: "Request Speaker | Cinnamon",
+        title: "Request a Speaker | Cinnamon",
         description:
-            "Apply to be a speaker for an event, podcast, conference, or publication. Share your expertise and let Cinnamon connect you with opportunities to speak and inspire audiences.",
+            "Request speakers for your event, podcast or conference. Let Cinnamon connect you with inspiring experts and thought leaders.",
         url: "https://thecinnamon.io/request-speaker",
         siteName: "Cinnamon",
         images: [
@@ -25,9 +25,9 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Request Speaker | Cinnamon",
+        title: "Request a Speaker | Cinnamon",
         description:
-            "Apply to be a speaker for an event, podcast, conference, or publication. Share your expertise and let Cinnamon connect you with opportunities to speak and inspire audiences.",
+            "Request speakers for your event, podcast or conference. Let Cinnamon connect you with inspiring experts and thought leaders.",
         images: ["https://thecinnamon.io/cinnamon.png"],
         site: "@thecinnamonio",
     },
@@ -37,8 +37,8 @@ export default function page() {
     return (
         <div className="min-h-screen bg-background mx-2">
             <PageHeader
-                title="Request Speaker"
-                subtext="Apply to be a speaker for an event, podcast, conference, or publication. Share your expertise and let Cinnamon connect you with speaking opportunities."
+                title="Request a Speaker"
+                subtext="Looking for speakers for your event, podcast or conference? Fill out the form and Cinnamon will connect you with inspiring experts and thought leaders."
             />
             <SpeakerRequestForm />
         </div>
