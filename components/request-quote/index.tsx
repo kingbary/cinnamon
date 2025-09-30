@@ -270,7 +270,7 @@ export default function RequestForm() {
                 >
                     <div className="bg-white border border-gray-200 rounded-lg p-4 md:p-8">
                         <div className="space-y-6">
-                             <div>
+                            <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                                     Your Name *
                                 </label>
@@ -392,7 +392,7 @@ export default function RequestForm() {
                                     />
                                     <div className="flex items-center gap-2">
                                         <label htmlFor="doNotPromote" className="text-sm text-gray-700">
-                                            Do not promote this request on {activeTab === 'products' ? 'Qwoted\'s' : 'Cinnamon\'s'} social
+                                            Do not promote this request on Cinnamon&apos;s social
                                         </label>
                                         <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
                                             ?

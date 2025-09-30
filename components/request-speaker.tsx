@@ -249,7 +249,7 @@ export default function SpeakerRequestForm() {
                                     />
                                     <div className="flex items-center gap-2">
                                         <label htmlFor="doNotPromote" className="text-sm text-gray-700">
-                                            Do not promote this request on Qwoted&apos;s social
+                                            Do not promote this request on Cinnamon&apos;s social
                                         </label>
                                         <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
                                             ?
