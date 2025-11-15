@@ -1,25 +1,30 @@
+'use client'
+
 import React from 'react'
 import Container from '../universal/container'
 import { Button } from '../ui/button'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function Header() {
-
-
     return (
         <header className='relative pt-2 min-h-screen mx-2'>
-            {/* <Container className='first-container bg-dark flex items-center py-4 h-fit'>
-                <div className='pt-20 flex flex-col items-center justify-center'>
-                    <h5 className='text-[#B8B8CC] text-[32px] font-semibold leading-8 -tracking-[2px]'>PR that puts you in the</h5>
-                    <div className='relative my-6'>
-                        <span className='text-[#B8B8CC80] text-[290px] font-bold -tracking-[25px] leading-[240px] uppercase font-[family-name:var(--font-poppins)]'>Spotlight</span>
-                    </div>
-                </div>
-            </Container> */}
-            <Container className='bg-[#1F1F99] py-4 animate-heightGrow animate-bgTransition'>
+            <Container className='bg-[#1F1F99] py-4 animate-heightGrow animate-bgTransition h-screen'>
                 <div className='pt-20 flex flex-col items-center justify-center absolute top-0 left-0 right-0 bottom-0'>
-                    <h5 className='text-[#B8B8CC] text-[32px] font-semibold leading-8 -tracking-[2px]'>PR that puts you in the</h5>
-                    <div className='relative my-6 font-[family-name:var(--font-poppins)] px-4'>
+                    <motion.h5
+                        className='text-[#B8B8CC] text-[32px] font-semibold leading-8 -tracking-[2px]'
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        PR that puts you in the
+                    </motion.h5>
+                    <motion.div
+                        className='relative my-6 font-[family-name:var(--font-poppins)] px-4'
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
                         <h1 className='blur-lg'>
                             <span className='md:hidden'>Spot<br />light</span>
                             <span className='hidden md:inline'>Spotlight</span>
@@ -28,18 +33,30 @@ export default function Header() {
                             <span className='md:hidden'>Spot<br />light</span>
                             <span className='hidden md:inline'>Spotlight</span>
                         </span>
-                    </div>
-                    <div className='max-w-[700px] flex flex-col items-center justify-center px-4 mt-20 md:mt-6'>
+                    </motion.div>
+                    <motion.div
+                        className='max-w-[700px] flex flex-col items-center justify-center px-4 mt-20 md:mt-6'
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
+                    >
                         <div className='px-4'>
                             <p className='text-white text-lg text-center font-medium leading-8 -tracking-[0.5px]'>We build your global profile through strategic media placements that showcase your expertise and accelerate your international career prospects.</p>
                         </div>
-                        <div className='mt-6 flex gap-4 px-4'>
+                        <motion.div
+                            className='mt-6 flex gap-4 px-4'
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, delay: 1.2 }}
+                        >
                             <Link href={'/about-us#contact-form'}>
                                 <Button variant={'secondary'}>Book Consultation</Button>
                             </Link>
-                            <Button variant={'transparentBg'} className='text-white'>See our Work</Button>
-                        </div>
-                    </div>
+                            <Link href={'/request-speaker'}>
+                                <Button variant={'transparentBg'} className='text-white'>Request Speaker</Button>
+                            </Link>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </Container>
         </header>
