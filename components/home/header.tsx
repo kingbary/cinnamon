@@ -44,7 +44,7 @@ export default function Header() {
                             <p className='text-white text-lg text-center font-medium leading-8 -tracking-[0.5px]'>We build your global profile through strategic media placements that showcase your expertise and accelerate your international career prospects.</p>
                         </div>
                         <motion.div
-                            className='mt-6 flex gap-4 px-4'
+                            className='mt-6 flex flex-col items-center gap-4 px-4 md:flex-row'
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.6, delay: 1.2 }}
