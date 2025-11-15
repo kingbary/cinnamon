@@ -1,9 +1,10 @@
 "use client"
 import Container from '@/components/universal/container'
-import React from 'react'
+import React, { useRef } from 'react'
 import { LineStroke } from '../vectors/line-stroke'
 import { PlayIcon } from '../vectors/play-icon'
 import { ExpandedPodcast } from '@/sanity/lib/queries'
+import { motion, useInView } from 'framer-motion'
 
 const getVideoType = (url: string) => {
     const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
@@ -48,6 +49,8 @@ interface VideoSectionProps {
 export default function VideoSection({ featuredVideo }: VideoSectionProps) {
     const [isPlaying, setIsPlaying] = React.useState(false);
     const videoRef = React.useRef<HTMLVideoElement>(null);
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
 
     const videoData = featuredVideo || {
         title: "Lorem ipsum molestie nunc egestas pretium scelerisque turpis magna.",
@@ -89,13 +92,22 @@ export default function VideoSection({ featuredVideo }: VideoSectionProps) {
     const backgroundImage = videoData.posterImageUrl || '/images/video.png';
 
     return (
-        <div
+        <motion.div
+            ref={sectionRef}
             className='relative bg-no-repeat bg-cover flex items-end mb-8 bg-black/20 rounded-3xl md:rounded-[40px] h-[460px] md:h-screen overflow-hidden'
             style={{ backgroundImage: `url(${backgroundImage})` }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.8 }}
         >
             {/* Video Player Overlay */}
             {isPlaying && videoData.videoUrl && videoInfo?.type === 'youtube' && (
-                <div className="absolute inset-0 z-20">
+                <motion.div
+                    className="absolute inset-0 z-20"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                >
                     <iframe
                         src={videoInfo.embedUrl}
                         title={videoData.title}
@@ -104,11 +116,16 @@ export default function VideoSection({ featuredVideo }: VideoSectionProps) {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     />
-                </div>
+                </motion.div>
             )}
 
             {isPlaying && videoData.videoUrl && videoInfo?.type === 'regular' && (
-                <div className="absolute inset-0 z-20">
+                <motion.div
+                    className="absolute inset-0 z-20"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                >
                     <video
                         ref={videoRef}
                         className='w-full h-full object-cover'
@@ -121,34 +138,71 @@ export default function VideoSection({ featuredVideo }: VideoSectionProps) {
                         <source src={videoData.videoUrl} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
-                </div>
+                </motion.div>
             )}
 
             {/* Play Button */}
             {!isPlaying && videoData.videoUrl && (
-                <div
+                <motion.div
                     className='absolute top-1/2 right-1/2 translate-x-1/2 bg-black/20 flex justify-center items-center py-6 px-12 shadow-[0px 10px 20px 0px rgba(0, 0, 0, 0.40)] rounded-2xl z-10 cursor-pointer hover:bg-black/30 transition-colors'
                     onClick={handlePlayClick}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+                    transition={{
+                        duration: 0.6,
+                        delay: 0.4,
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 15
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                 >
                     <PlayIcon />
-                </div>
+                </motion.div>
             )}
 
             {/* Static play button for videos without URL */}
             {!videoData.videoUrl && (
-                <div className='absolute top-1/2 right-1/2 translate-x-1/2 bg-black/20 flex justify-center items-center py-6 px-12 shadow-[0px 10px 20px 0px rgba(0, 0, 0, 0.40)] rounded-2xl z-10'>
+                <motion.div
+                    className='absolute top-1/2 right-1/2 translate-x-1/2 bg-black/20 flex justify-center items-center py-6 px-12 shadow-[0px 10px 20px 0px rgba(0, 0, 0, 0.40)] rounded-2xl z-10'
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+                    transition={{
+                        duration: 0.6,
+                        delay: 0.4,
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 15
+                    }}
+                >
                     <PlayIcon />
-                </div>
+                </motion.div>
             )}
 
             {/* Content Overlay */}
             <div className="video-bg flex items-end w-full relative z-10">
                 <Container>
-                    <div className="py-6 md:px-4 md:py-8 flex flex-col gap-3 w-full">
-                        <h2 className="text-white">
+                    <motion.div
+                        className="py-6 md:px-4 md:py-8 flex flex-col gap-3 w-full"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        transition={{ duration: 0.6, delay: 0.6 }}
+                    >
+                        <motion.h2
+                            className="text-white"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                            transition={{ duration: 0.5, delay: 0.8 }}
+                        >
                             {videoData.title}
-                        </h2>
-                        <div className="flex gap-1 md:gap-2 md:mb-6">
+                        </motion.h2>
+                        <motion.div
+                            className="flex gap-1 md:gap-2 md:mb-6"
+                            initial={{ opacity: 0 }}
+                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                            transition={{ duration: 0.5, delay: 1 }}
+                        >
                             <div className="flex gap-2 items-center">
                                 <p className="font-medium text-[#AAAAB2] text-xs whitespace-nowrap lg:text-base">
                                     {videoData.publishedAt ? formatDate(videoData.publishedAt) : 'Feb 14, 2025'}
@@ -172,10 +226,10 @@ export default function VideoSection({ featuredVideo }: VideoSectionProps) {
                                     {videoData.tag?.text || 'Lifestyle and Travel'}
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </Container>
             </div>
-        </div>
+        </motion.div>
     )
 }
