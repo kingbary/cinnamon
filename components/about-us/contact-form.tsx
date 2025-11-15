@@ -1,11 +1,12 @@
 "use client"
-import React from 'react'
+import React, { useRef } from 'react'
 import Container from '../universal/container'
 import { Button } from '../ui/button'
 import { useForm, Controller } from 'react-hook-form'
 import { toast } from 'sonner'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import Link from 'next/link'
+import { motion, useInView } from 'framer-motion'
 
 type ContactFormData = {
     email: string;
@@ -20,9 +21,13 @@ export default function ContactForm() {
             email: '',
             name: '',
             message: '',
-            // service: ''
         }
     })
+
+    const headerRef = useRef(null)
+    const formRef = useRef(null)
+    const headerInView = useInView(headerRef, { once: false, amount: 0.3 })
+    const formInView = useInView(formRef, { once: false, amount: 0.2 })
 
     const onSubmit = async (fields: ContactFormData) => {
         const BASE_ID = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID;
@@ -62,7 +67,6 @@ export default function ContactForm() {
             if (typeof window !== 'undefined') {
                 toast.success("Your response was submitted succesfully!")
                 reset()
-
             }
 
         } catch (error) {
@@ -79,31 +83,69 @@ export default function ContactForm() {
     return (
         <Container className='mb-8 px-0 flex-col'>
             <div className='w-full'>
-                <div className='flex flex-col items-center gap-6 py-16'>
-                    <h3 className='principle-card-title max-w-[640px] text-center' style={{ color: '#1F1F99' }}>Ready to Build the Recognition your Expertise Deserves?</h3>
-                    <Link href={'#contact-form'}>
-                        <Button>Book Consultation</Button>
-                    </Link>
+                <div ref={headerRef} className='flex flex-col items-center gap-6 py-16'>
+                    <motion.h3
+                        className='principle-card-title max-w-[640px] text-center'
+                        style={{ color: '#1F1F99' }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        Ready to Build the Recognition your Expertise Deserves?
+                    </motion.h3>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={headerInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <Link href={'#contact-form'}>
+                            <Button>Book Consultation</Button>
+                        </Link>
+                    </motion.div>
                 </div>
-                <div className='flex w-full h-fit'>
-                    <div className='hidden bg-[#1F1F99] min-h-[500px] w-full rounded-l-[40px] lg:block'></div>
-                    <div className='h-full w-full rounded-3xl md:rounded-tl-none lg:rounded-bl-none lg:rounded-r-[40px] py-16 px-4 lg:px-[88px] border lg:border-y lg:border-r lg:border-l-0'>
+                <div ref={formRef} className='flex w-full h-fit'>
+                    <motion.div
+                        className='hidden bg-[#1F1F99] min-h-[500px] w-full rounded-l-[40px] lg:block'
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={formInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                        transition={{ duration: 0.8 }}
+                    />
+                    <motion.div
+                        className='h-full w-full rounded-3xl md:rounded-tl-none lg:rounded-bl-none lg:rounded-r-[40px] py-16 px-4 lg:px-[88px] border lg:border-y lg:border-r lg:border-l-0'
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={formInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                        transition={{ duration: 0.8 }}
+                    >
                         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-3' id='contact-form'>
-                            <div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                            >
                                 <label htmlFor="email" className='sr-only'>Email</label>
                                 <input {...register('email', { required: 'This field is required' })} type="email" name='email' id='email' placeholder='Email address' className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px]' />
                                 {errors.email && (
                                     <p className='text-sm text-red-600 mt-1'>{errors.email.message}</p>
                                 )}
-                            </div>
-                            <div>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                transition={{ duration: 0.5, delay: 0.3 }}
+                            >
                                 <label htmlFor="name" className='sr-only'>Name </label>
                                 <input {...register('name', { required: 'This field is required' })} type="name" name='name' placeholder='Name' className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px]' />
                                 {errors.name && (
                                     <p className='text-sm text-red-600 mt-1'>{errors.name.message}</p>
                                 )}
-                            </div>
-                            <div>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                transition={{ duration: 0.5, delay: 0.4 }}
+                            >
                                 <Controller
                                     name="service"
                                     control={control}
@@ -128,17 +170,27 @@ export default function ContactForm() {
                                 {errors.service && (
                                     <p className='text-sm text-red-600 mt-1'>{errors.service.message}</p>
                                 )}
-                            </div>
-                            <div>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={formInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                transition={{ duration: 0.5, delay: 0.5 }}
+                            >
                                 <label htmlFor="message" className='sr-only'>Message</label>
                                 <textarea {...register('message', { required: 'This field is required' })} name="message" placeholder='Please type your message' id="message" className='bg-[#EDEDFA] w-full p-4 border border-[#E1E1E5] outline-none rounded-lg focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[2px]' rows={6} cols={4}></textarea>
                                 {errors.message && (
                                     <p className='text-sm text-red-600 mt-1'>{errors.message.message}</p>
                                 )}
-                            </div>
-                            <Button type='submit' className='w-fit'>Send message</Button>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={formInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.5, delay: 0.6 }}
+                            >
+                                <Button type='submit' className='w-fit'>Send message</Button>
+                            </motion.div>
                         </form>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </Container>
