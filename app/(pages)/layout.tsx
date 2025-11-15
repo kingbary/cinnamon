@@ -5,7 +5,7 @@ import { Toaster } from 'sonner'
 
 export default function layout({ children }: { children: React.ReactNode }) {
     return (
-        <main className='relative'>
+        <main className='relative overflow-hidden'>
             <Toaster richColors position="top-right" />
             <NavLink />
             {children}

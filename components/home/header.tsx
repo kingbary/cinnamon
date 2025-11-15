@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 export default function Header() {
     return (
         <header className='relative pt-2 min-h-screen mx-2'>
-            <Container className='bg-[#1F1F99] py-4 animate-heightGrow animate-bgTransition h-screen'>
+            <Container className='bg-[#1F1F99] py-4 animate-heightGrow animate-bgTransition min-h-screen'>
                 <div className='pt-20 flex flex-col items-center justify-center absolute top-0 left-0 right-0 bottom-0'>
                     <motion.h5
                         className='text-[#B8B8CC] text-[32px] font-semibold leading-8 -tracking-[2px]'
@@ -44,7 +44,7 @@ export default function Header() {
                             <p className='text-white text-lg text-center font-medium leading-8 -tracking-[0.5px]'>We build your global profile through strategic media placements that showcase your expertise and accelerate your international career prospects.</p>
                         </div>
                         <motion.div
-                            className='mt-6 flex flex-col items-center gap-4 px-4 md:flex-row'
+                            className='mt-6 flex flex-col items-center gap-4 px-4 mb-4 md:flex-row'
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.6, delay: 1.2 }}
